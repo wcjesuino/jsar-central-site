@@ -6,7 +6,7 @@ import { siteConfig, waLink } from "@/lib/site-config";
 
 function GlassNav() {
   return (
-    <div className="relative z-10 flex justify-center px-4 pt-6 sm:pt-8">
+    <div className="relative z-10 flex justify-center">
       <nav className="inline-flex items-center gap-4 rounded-pill border border-white/15 bg-white/10 p-1.5 pl-4 backdrop-blur-md sm:gap-5">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -50,7 +50,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-t-hero bg-surface-dark">
+    <section className="relative flex min-h-[640px] flex-col justify-between overflow-hidden rounded-t-hero bg-surface-dark p-8">
       <div className="absolute inset-0">
         <video
           src="/video/hero_technician.mp4"
@@ -68,12 +68,12 @@ export function Hero() {
 
       <GlassNav />
 
-      <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-20 sm:px-6 sm:pt-20 sm:pb-28">
-        <Badge variant="green" dot className="mb-6">
+      <div className="relative z-10 max-w-xl">
+        <Badge variant="green" dot className="mb-5">
           Atendimento 24h disponível
         </Badge>
 
-        <h1 className="font-editorial max-w-xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
+        <h1 className="font-editorial text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
           Ar-condicionado
           <br />
           <span className="text-gray-400">instalado certo.</span>
@@ -81,13 +81,13 @@ export function Hero() {
           Garantia intacta.
         </h1>
 
-        <p className="mt-6 max-w-md text-sm leading-relaxed text-white/55 sm:text-base">
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55 sm:text-base">
           Instalação e manutenção credenciada pelos principais fabricantes —
           a única forma de manter a garantia de fábrica válida. Atuação em
           toda a Baixada Fluminense e Rio de Janeiro.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap gap-4">
           <Button
             href={waLink("Olá! Gostaria de solicitar um orçamento.")}
             variant="primary"
@@ -100,7 +100,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-10 border-t border-white/10 pt-6">
+        <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
@@ -112,7 +112,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 right-6 hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/5 py-2.5 pl-2.5 pr-4 backdrop-blur md:flex">
+      <div className="absolute bottom-8 right-8 hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/5 py-2.5 pl-2.5 pr-4 backdrop-blur md:flex">
         <Image
           src="/brand/technician_badge.jpg"
           alt="Técnico credenciado em campo"
