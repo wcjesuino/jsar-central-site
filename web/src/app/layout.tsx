@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Montserrat, JetBrains_Mono } from "next/font/google";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,7 +43,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${inter.variable} ${manrope.variable} ${montserrat.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">
+        <Header />
+        <main className="flex flex-1 flex-col">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
