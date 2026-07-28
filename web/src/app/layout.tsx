@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Montserrat, JetBrains_Mono } from "next/font/google";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
@@ -44,7 +43,6 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} ${montserrat.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
-        <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>
