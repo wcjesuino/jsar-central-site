@@ -23,6 +23,17 @@
   --font-editorial: var(--font-manrope);
   --font-display: var(--font-montserrat);
   --font-mono: var(--font-jetbrains-mono);
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 body {

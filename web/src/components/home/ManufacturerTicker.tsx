@@ -1,0 +1,37 @@
+const manufacturers = [
+  "agratto",
+  "carrier",
+  "daikin",
+  "elgin",
+  "fujitsu",
+  "gree",
+  "hitachi",
+  "lg",
+  "midea",
+  "philco",
+  "springer-midea",
+  "tcl",
+  "ventisol",
+];
+
+export function ManufacturerTicker() {
+  const items = [...manufacturers, ...manufacturers];
+
+  return (
+    <section className="overflow-hidden border-b border-gray-100 bg-white py-6">
+      <div className="flex w-max animate-marquee items-center gap-12">
+        {items.map((brand, i) => (
+          <span key={`${brand}-${i}`} className="flex shrink-0 items-center gap-3">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo decorativo pequeno, otimização do next/image é desnecessária aqui */}
+            <img
+              src={`/brand/manufacturers/${brand}.png`}
+              alt={brand}
+              className="h-7 w-auto object-contain"
+            />
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
