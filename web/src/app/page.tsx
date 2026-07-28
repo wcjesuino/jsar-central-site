@@ -1,18 +1,16 @@
-import Image from "next/image";
+import { Logo } from "@/components/brand/Logo";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-8 bg-[#12151A] px-6 text-center">
-      <Image
-        src="/brand/mark_symbol_white.png"
-        alt="JS AR Central"
-        width={96}
-        height={96}
-        priority
-        className="h-16 w-auto"
-      />
+    <div className="flex flex-1 flex-col items-center justify-center gap-6 bg-surface-dark px-6 text-center">
+      <Logo variant="dark" size={40} />
+      <Badge variant="green" dot>
+        Atendimento 24h disponível
+      </Badge>
       <div className="flex flex-col items-center gap-3">
-        <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+        <h1 className="font-editorial text-2xl font-semibold tracking-tight text-white sm:text-3xl">
           Site em construção
         </h1>
         <p className="max-w-md text-sm text-white/50 sm:text-base">
@@ -20,14 +18,9 @@ export default function Home() {
           principais fabricantes. Volte em breve.
         </p>
       </div>
-      <a
-        href="https://wa.me/5521964088936"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-[#E2081A] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#B8050F]"
-      >
+      <Button href="https://wa.me/5521964088936" variant="primary" size="lg">
         Falar no WhatsApp
-      </a>
+      </Button>
     </div>
   );
 }
