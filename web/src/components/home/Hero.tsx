@@ -11,7 +11,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-surface-dark">
+    <section className="relative overflow-hidden rounded-t-hero bg-surface-dark">
       <div className="absolute inset-0">
         <video
           src="/video/hero_technician.mp4"

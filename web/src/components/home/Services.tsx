@@ -1,8 +1,10 @@
 import Link from "next/link";
 
-function AnchorPill() {
+function AnchorPill({ className = "" }: { className?: string }) {
   return (
-    <span className="w-fit rounded-pill border border-white/30 bg-white/15 px-3 py-1 text-[11px] font-semibold tracking-wide text-white">
+    <span
+      className={`w-fit rounded-pill border border-white/30 bg-white/15 px-3 py-1 text-[11px] font-semibold tracking-wide text-white ${className}`}
+    >
       Serviço-âncora
     </span>
   );
@@ -44,9 +46,16 @@ export function Services() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
-          <div className="flex min-h-[280px] flex-col justify-between rounded-2xl bg-brand p-8 md:col-span-7">
-            <AnchorPill />
-            <div>
+          <div className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl p-8 md:col-span-7">
+            {/* eslint-disable-next-line @next/next/no-img-element -- imagem de fundo decorativa com overlay de cor */}
+            <img
+              src="/home/card_bg_instalacao.jpg"
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand/90 via-brand/80 to-surface-dark/70" />
+            <AnchorPill className="relative" />
+            <div className="relative">
               <h3 className="font-editorial mb-4 text-2xl font-semibold leading-tight text-white sm:text-3xl">
                 Instalação de
                 <br />
@@ -56,9 +65,16 @@ export function Services() {
             </div>
           </div>
 
-          <div className="flex min-h-[280px] flex-col justify-between rounded-2xl bg-cool p-8 md:col-span-5">
-            <AnchorPill />
-            <div>
+          <div className="relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-2xl p-8 md:col-span-5">
+            {/* eslint-disable-next-line @next/next/no-img-element -- imagem de fundo decorativa com overlay de cor */}
+            <img
+              src="/home/card_bg_manutencao.jpg"
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-cool/90 via-cool/80 to-surface-dark/70" />
+            <AnchorPill className="relative" />
+            <div className="relative">
               <h3 className="font-editorial mb-4 text-2xl font-semibold leading-tight text-white">
                 Manutenção Preventiva
                 <br />& Corretiva

@@ -18,7 +18,7 @@ export function ManufacturerTicker() {
   const items = [...manufacturers, ...manufacturers];
 
   return (
-    <section className="overflow-hidden border-b border-gray-100 bg-white py-6">
+    <section className="overflow-hidden rounded-b-hero border-t border-gray-200 bg-white py-6">
       <div className="flex w-max animate-marquee items-center gap-12">
         {items.map((brand, i) => (
           <span key={`${brand}-${i}`} className="flex shrink-0 items-center gap-3">

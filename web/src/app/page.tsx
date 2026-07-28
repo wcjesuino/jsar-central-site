@@ -5,8 +5,10 @@ import { Services } from "@/components/home/Services";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <ManufacturerTicker />
+      <div className="p-3 sm:p-5">
+        <Hero />
+        <ManufacturerTicker />
+      </div>
       <Services />
     </>
   );
