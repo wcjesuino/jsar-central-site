@@ -11,3 +11,9 @@ export const siteConfig = {
     { label: "Contato", href: "/contato" },
   ],
 };
+
+/** Link do WhatsApp com mensagem pré-preenchida opcional. */
+export function waLink(message?: string) {
+  if (!message) return siteConfig.whatsappHref;
+  return `${siteConfig.whatsappHref}?text=${encodeURIComponent(message)}`;
+}
