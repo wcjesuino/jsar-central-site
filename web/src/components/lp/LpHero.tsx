@@ -1,8 +1,11 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { LpTopBar } from "@/components/lp/LpTopBar";
 import { siteConfig, waLink } from "@/lib/site-config";
+
+type Stat = { value: string; label: string; color: string };
 
 type LpHeroProps = {
   badgeLabel: string;
@@ -11,6 +14,8 @@ type LpHeroProps = {
   primaryCtaLabel: string;
   ctaMessage: string;
   backgroundImage: string;
+  stats: readonly Stat[];
+  floatingBadge: { title: string; subtitle: string };
 };
 
 export function LpHero({
@@ -20,28 +25,32 @@ export function LpHero({
   primaryCtaLabel,
   ctaMessage,
   backgroundImage,
+  stats,
+  floatingBadge,
 }: LpHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-surface-dark">
-      <div className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element -- imagem de fundo full-bleed com overlay */}
-        <img
-          src={backgroundImage}
-          alt=""
-          className="h-full w-full object-cover opacity-45"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-15% via-surface-dark/60 via-50% to-surface-dark/20" />
-      </div>
+    <div className="mx-auto w-full max-w-[1280px] p-3 sm:p-5">
+      <section className="relative flex min-h-[720px] flex-col justify-between overflow-hidden rounded-hero bg-surface-dark p-8">
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element -- imagem de fundo full-bleed com overlay */}
+          <img
+            src={backgroundImage}
+            alt=""
+            className="h-full w-full object-cover opacity-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-20% via-surface-dark/55 via-48% to-surface-dark/12" />
+          <div className="absolute -bottom-20 -left-20 h-[420px] w-[420px] rounded-full bg-brand/15 blur-3xl" />
+          <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
+        </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 pt-6 pb-16 sm:px-6 sm:pt-8 sm:pb-24">
         <LpTopBar ctaMessage={ctaMessage} />
 
-        <div className="mt-14 max-w-xl sm:mt-20">
+        <div className="relative z-10 max-w-xl">
           <Badge variant="green" dot className="mb-5">
             {badgeLabel}
           </Badge>
 
-          <h1 className="font-editorial text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="font-editorial text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl">
             {headline}
           </h1>
 
@@ -62,8 +71,38 @@ export function LpHero({
               Falar no WhatsApp
             </Button>
           </div>
+
+          <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
+                  {stat.value}
+                </div>
+                <div className="mt-0.5 text-xs text-white/35">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div className="absolute bottom-8 right-8 hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/5 py-2.5 pl-2.5 pr-4 backdrop-blur md:flex">
+          <Image
+            src="/brand/technician_badge.jpg"
+            alt="Técnico credenciado em campo"
+            width={44}
+            height={60}
+            className="h-[60px] w-[44px] rounded-md object-cover"
+          />
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-wide text-white/40">
+              Serviço
+            </div>
+            <div className="font-editorial text-sm font-semibold text-white">
+              {floatingBadge.title}
+            </div>
+            <div className="mt-0.5 text-[11px] text-white/40">{floatingBadge.subtitle}</div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

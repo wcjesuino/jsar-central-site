@@ -12,34 +12,46 @@ export const metadata: Metadata = {
 
 const CTA_MESSAGE = "Olá! Gostaria de solicitar um orçamento de instalação.";
 
+const iconProps = {
+  width: 20,
+  height: 20,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
 function ShieldIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <svg {...iconProps}>
+      <path d="M12 21c4.5-1.8 8-5.5 8-11V6l-8-3-8 3v4c0 5.5 3.5 9.2 8 11z" />
+      <path d="M9 12.2l2 2 4-4.2" />
     </svg>
   );
 }
 function LayersIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 2 2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+    <svg {...iconProps}>
+      <path d="M12 3 3 8l9 5 9-5-9-5z" />
+      <path d="M3 16l9 5 9-5M3 12l9 5 9-5" />
     </svg>
   );
 }
 function ClockIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" strokeLinecap="round" />
+    <svg {...iconProps}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3.5 2" />
     </svg>
   );
 }
 function AwardIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="8" r="6" />
-      <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" />
+    <svg {...iconProps}>
+      <circle cx="12" cy="8.5" r="5.5" />
+      <path d="M9 13.2 7.5 21l4.5-2.5 4.5 2.5-1.5-7.8" />
     </svg>
   );
 }
@@ -49,25 +61,25 @@ const differentiators = [
     icon: <ShieldIcon />,
     title: "Credenciamento de fábrica",
     description:
-      "Instalamos seguindo o protocolo de Daikin, LG, Carrier, Gree, Fujitsu, Midea e outros — instalação fora do padrão é a causa mais comum de perda de garantia.",
+      "Seguimos o protocolo exato de Daikin, LG, Carrier, Gree, Fujitsu, Midea e outras marcas. Instalação fora do padrão é a causa nº1 de perda de garantia.",
   },
   {
     icon: <LayersIcon />,
     title: "Qualquer porte de projeto",
     description:
-      "De um split residencial a um sistema central completo para comércio ou condomínio, a mesma equipe cuida do dimensionamento à finalização.",
+      "Do split residencial ao sistema central de um condomínio inteiro — a mesma equipe cuida do dimensionamento ao acabamento.",
   },
   {
     icon: <ClockIcon />,
     title: "Atendimento 24 horas",
     description:
-      "Emergência não escolhe hora. Respondemos chamados urgentes fora do horário comercial na Baixada Fluminense e Rio de Janeiro.",
+      "Emergência não avisa. Respondemos chamados urgentes a qualquer hora, com prioridade para Rio de Janeiro e Baixada Fluminense.",
   },
   {
     icon: <AwardIcon />,
     title: "Mais de 10 anos de experiência",
     description:
-      "Uma década instalando na mesma região nos ensinou o que funciona: instalação bem feita evita 90% dos chamados de manutenção no primeiro ano.",
+      "Uma década instalando na mesma região nos ensinou: instalação bem feita evita 9 em cada 10 chamados de manutenção no primeiro ano.",
   },
 ];
 
@@ -132,6 +144,12 @@ const faqItems = [
   },
 ];
 
+const stats = [
+  { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
+  { value: "24h", label: "Atendimento emergencial", color: "text-cool" },
+  { value: "100%", label: "Credenciado pelos fabricantes", color: "text-gold" },
+] as const;
+
 export default function InstalacaoArCondicionado() {
   return (
     <>
@@ -139,16 +157,24 @@ export default function InstalacaoArCondicionado() {
         badgeLabel="Atendimento 24h disponível"
         headline={
           <>
-            Instalação de ar-condicionado
+            Instalação de
             <br />
-            <span className="text-gray-400">feita para durar</span> — e para
-            valer a garantia.
+            Ar-Condicionado
+            <br />
+            feita para durar
+            <br />
+            <span className="text-gray-400">e para valer a garantia.</span>
           </>
         }
-        subheadline="Central, split ou multi-split: instalamos com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
-        primaryCtaLabel="Solicitar Orçamento de Instalação"
+        subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
+        primaryCtaLabel="Solicitar Orçamento"
         ctaMessage={CTA_MESSAGE}
         backgroundImage="/home/card_bg_instalacao.jpg"
+        stats={stats}
+        floatingBadge={{
+          title: "Instalação em andamento",
+          subtitle: "Técnico credenciado em campo",
+        }}
       />
       <Differentiators title="Por que instalar com a JS AR Central" items={differentiators} />
       <Testimonials testimonials={testimonials} trustCard={trustCard} />
