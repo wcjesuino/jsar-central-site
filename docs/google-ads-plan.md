@@ -104,14 +104,16 @@ Manter em 1 grupo de anúncio nesta fase inicial — orçamento não comporta se
 
 Status atual (verificado no código do site):
 
-1. ⬜ Tag do Google Ads (conversão) instalada via GTM — `NEXT_PUBLIC_GTM_ID` **ainda não configurado** em produção. O container GTM já está implementado no site (dispara em toda navegação), só falta o ID real do cliente.
+1. ✅ Tag do Google Ads (conversão) instalada via GTM — `NEXT_PUBLIC_GTM_ID=GTM-P8T43FVN` configurado em produção em 2026-07-29 e validado (script carrega, `dataLayer` dispara `page_view` em cada navegação). Falta apenas configurar dentro do próprio GTM a tag de conversão do Google Ads vinculada aos eventos `generate_lead`/`whatsapp_click` já disparados pelo site.
 2. ✅ Evento de conversão no clique do botão de WhatsApp — `whatsapp_click` já disparado via `dataLayer` em todos os CTAs de WhatsApp (Hero, thank-you page).
 3. ✅ Evento de conversão no envio do formulário (thank-you page) — `generate_lead` disparado nas duas thank-you pages (`instalacao-ar-condicionado/obrigado` e `manutencao-ar-condicionado/obrigado`), com `service` diferenciando Instalação/Manutenção.
 4. ⬜ Evento de conversão no clique do telefone — não implementado ainda (o site usa WhatsApp como canal principal, não há link `tel:` clicável hoje).
 
 **Bônus não previsto neste plano original:** os leads do formulário agora também caem automaticamente no CRM do Ads Studio (funil "novo"), com notificação por e-mail ao cliente — dá uma segunda fonte de verdade pra cruzar com as conversões do Google Ads e validar que o CPL calculado bate com leads reais recebidos.
 
-Falta o item 1 (ID real do GTM) e o item 4 (opcional, se quiser rastrear ligação) antes de ativar qualquer campanha — sem o GTM real, o Google Ads otimiza às cegas.
+Falta só configurar a tag de conversão do Google Ads dentro do GTM (vinculando aos eventos já disparados) e, opcionalmente, o item 4 (rastrear ligação) antes de ativar qualquer campanha.
+
+**Status das campanhas (atualizado em 2026-07-29):** as duas campanhas Search deste plano já foram criadas na conta real da JS AR Central via API (Google Ads customer ID 1384765107, sob a MCC Agência Reino), com a estrutura exata descrita acima — geo por cidade, keywords, negativas, RSA com os headlines/descriptions validados. **Estão pausadas de propósito**, aguardando: (1) corte de DNS pra trocar a Final URL pro domínio próprio, (2) tag de conversão do Google Ads configurada no GTM, (3) revisão final do cliente antes de ativar.
 
 ## Estratégia de lance sugerida
 
