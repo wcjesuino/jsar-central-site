@@ -121,7 +121,7 @@ export default function Contato() {
                 <div className="text-xs font-semibold tracking-wide text-gray-400 uppercase">
                   {c.label}
                 </div>
-                <div className="font-editorial mt-1 text-base font-bold whitespace-nowrap text-gray-900">
+                <div className="font-editorial mt-1 text-sm font-bold whitespace-nowrap text-gray-900">
                   {c.value}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-gray-500">{c.legend}</p>
