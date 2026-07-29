@@ -1,46 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { GlassNav } from "@/components/shared/GlassNav";
 import { siteConfig, waLink } from "@/lib/site-config";
 
-function GlassNav() {
-  return (
-    <div className="relative z-10 flex justify-center">
-      <nav className="inline-flex items-center gap-4 rounded-pill border border-white/15 bg-white/10 p-1.5 pl-4 backdrop-blur-md sm:gap-5">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/brand/mark_symbol_white.png"
-            alt="JS AR Central"
-            width={60}
-            height={22}
-            style={{ height: 20, width: "auto" }}
-          />
-          <span className="hidden font-sans text-xs font-extrabold tracking-tight text-white sm:inline">
-            AR CENTRAL
-          </span>
-        </Link>
-        {siteConfig.navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="hidden text-[13px] font-medium text-white/60 transition-colors hover:text-white md:inline"
-          >
-            {link.label}
-          </Link>
-        ))}
-        <Button
-          href={waLink("Olá! Gostaria de solicitar um orçamento.")}
-          variant="primary"
-          size="sm"
-          className="!bg-white !text-gray-900 hover:!bg-gray-100"
-        >
-          Pedir Orçamento
-        </Button>
-      </nav>
-    </div>
-  );
-}
+const CTA_MESSAGE = "Olá! Gostaria de solicitar um orçamento.";
 
 const stats = [
   { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
@@ -66,7 +30,7 @@ export function Hero() {
         <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
       </div>
 
-      <GlassNav />
+      <GlassNav ctaMessage={CTA_MESSAGE} />
 
       <div className="relative z-10 max-w-xl">
         <Badge variant="green" dot className="mb-5">
@@ -88,11 +52,7 @@ export function Hero() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button
-            href={waLink("Olá! Gostaria de solicitar um orçamento.")}
-            variant="primary"
-            size="lg"
-          >
+          <Button href={waLink(CTA_MESSAGE)} variant="primary" size="lg">
             Solicitar Orçamento
           </Button>
           <Button href={siteConfig.whatsappHref} variant="outline" size="lg" className="border-white/25 text-white hover:border-white hover:text-white">

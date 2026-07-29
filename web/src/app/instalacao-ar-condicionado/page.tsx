@@ -169,7 +169,8 @@ export default function InstalacaoArCondicionado() {
         subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
         primaryCtaLabel="Solicitar Orçamento"
         ctaMessage={CTA_MESSAGE}
-        backgroundImage="/home/card_bg_instalacao.jpg"
+        videoSrc="/video/lp_instalacao.mp4"
+        posterSrc="/video/lp_instalacao_poster.jpg"
         stats={stats}
         floatingBadge={{
           title: "Instalação em andamento",

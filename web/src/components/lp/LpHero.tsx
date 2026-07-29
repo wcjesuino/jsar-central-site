@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { LpTopBar } from "@/components/lp/LpTopBar";
+import { GlassNav } from "@/components/shared/GlassNav";
 import { siteConfig, waLink } from "@/lib/site-config";
 
 type Stat = { value: string; label: string; color: string };
@@ -13,7 +13,8 @@ type LpHeroProps = {
   subheadline: string;
   primaryCtaLabel: string;
   ctaMessage: string;
-  backgroundImage: string;
+  videoSrc: string;
+  posterSrc: string;
   stats: readonly Stat[];
   floatingBadge: { title: string; subtitle: string };
 };
@@ -24,18 +25,22 @@ export function LpHero({
   subheadline,
   primaryCtaLabel,
   ctaMessage,
-  backgroundImage,
+  videoSrc,
+  posterSrc,
   stats,
   floatingBadge,
 }: LpHeroProps) {
   return (
     <div className="mx-auto w-full max-w-[1280px] p-3 sm:p-5">
-      <section className="relative flex min-h-[720px] flex-col justify-between overflow-hidden rounded-hero bg-surface-dark p-8">
+      <section className="relative flex min-h-[640px] flex-col justify-between overflow-hidden rounded-hero bg-surface-dark p-8">
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element -- imagem de fundo full-bleed com overlay */}
-          <img
-            src={backgroundImage}
-            alt=""
+          <video
+            src={videoSrc}
+            poster={posterSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="h-full w-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-20% via-surface-dark/55 via-48% to-surface-dark/12" />
@@ -43,7 +48,7 @@ export function LpHero({
           <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
         </div>
 
-        <LpTopBar ctaMessage={ctaMessage} />
+        <GlassNav ctaMessage={ctaMessage} />
 
         <div className="relative z-10 max-w-xl">
           <Badge variant="green" dot className="mb-5">
