@@ -1,11 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { siteConfig, waLink } from "@/lib/site-config";
+import { usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/site-config";
+import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
+import type { WhatsAppService } from "@/components/whatsapp/WhatsAppIntentContext";
 
 // Menu flutuante em vidro (glassmorphism) usado no hero de todas as
 // páginas com hero escuro (Home, LPs) — mesmo padrão em todo o site.
-export function GlassNav({ ctaMessage }: { ctaMessage: string }) {
+export function GlassNav() {
+  const pathname = usePathname();
+  const defaultService: WhatsAppService | undefined = pathname.startsWith(
+    "/manutencao-ar-condicionado",
+  )
+    ? "Manutenção"
+    : pathname.startsWith("/instalacao-ar-condicionado")
+      ? "Instalação"
+      : undefined;
+
   return (
     <div className="relative z-10 flex justify-center">
       <nav className="inline-flex items-center gap-4 rounded-pill border border-white/15 bg-white/10 p-1.5 pl-4 backdrop-blur-md sm:gap-5">
@@ -30,15 +43,14 @@ export function GlassNav({ ctaMessage }: { ctaMessage: string }) {
             {link.label}
           </Link>
         ))}
-        <Button
-          href={waLink(ctaMessage)}
+        <WhatsAppButton
+          defaultService={defaultService}
           variant="primary"
           size="sm"
-          analyticsEvent="whatsapp_click"
           className="!bg-white !text-gray-900 hover:!bg-gray-100"
         >
           Pedir Orçamento
-        </Button>
+        </WhatsAppButton>
       </nav>
     </div>
   );

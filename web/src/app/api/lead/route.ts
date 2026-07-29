@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 type LeadPayload = {
   name: string;
   whatsapp: string;
-  neighborhood: string;
+  neighborhood?: string;
   service: string;
   page: string;
 };
@@ -16,8 +16,7 @@ function isValidPayload(body: unknown): body is LeadPayload {
     b.name.trim().length > 0 &&
     typeof b.whatsapp === "string" &&
     b.whatsapp.replace(/\D/g, "").length >= 10 &&
-    typeof b.neighborhood === "string" &&
-    b.neighborhood.trim().length > 0 &&
+    (b.neighborhood === undefined || typeof b.neighborhood === "string") &&
     typeof b.service === "string" &&
     typeof b.page === "string"
   );
@@ -36,7 +35,7 @@ export async function POST(request: Request) {
 
   if (!isValidPayload(body)) {
     return NextResponse.json(
-      { ok: false, error: "Preencha nome, WhatsApp e bairro/cidade corretamente." },
+      { ok: false, error: "Preencha nome e WhatsApp corretamente." },
       { status: 400 },
     );
   }
@@ -54,7 +53,9 @@ export async function POST(request: Request) {
           phone: body.whatsapp,
           source: "site",
           product_service: body.service,
-          notes: `Bairro/Cidade: ${body.neighborhood} — Página: ${body.page}`,
+          notes: body.neighborhood
+            ? `Bairro/Cidade: ${body.neighborhood} — Página: ${body.page}`
+            : `Página: ${body.page}`,
         }),
       });
       if (!res.ok) {

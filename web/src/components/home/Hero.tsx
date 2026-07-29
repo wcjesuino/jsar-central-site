@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { GlassNav } from "@/components/shared/GlassNav";
-import { siteConfig, waLink } from "@/lib/site-config";
-
-const CTA_MESSAGE = "Olá! Gostaria de solicitar um orçamento.";
+import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 
 const stats = [
   { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
@@ -30,7 +27,7 @@ export function Hero() {
         <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
       </div>
 
-      <GlassNav ctaMessage={CTA_MESSAGE} />
+      <GlassNav />
 
       <div className="relative z-10 max-w-xl">
         <Badge variant="green" dot className="mb-5">
@@ -52,18 +49,16 @@ export function Hero() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href={waLink(CTA_MESSAGE)} variant="primary" size="lg" analyticsEvent="whatsapp_click">
+          <WhatsAppButton variant="primary" size="lg">
             Solicitar Orçamento
-          </Button>
-          <Button
-            href={siteConfig.whatsappHref}
+          </WhatsAppButton>
+          <WhatsAppButton
             variant="outline"
             size="lg"
-            analyticsEvent="whatsapp_click"
             className="border-white/25 text-white hover:border-white hover:text-white"
           >
             Falar no WhatsApp
-          </Button>
+          </WhatsAppButton>
         </div>
 
         <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">

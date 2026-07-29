@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     "Instalação de ar-condicionado central, split ou multi-split com técnica certificada pelo fabricante. Rio de Janeiro e Baixada Fluminense.",
 };
 
-const CTA_MESSAGE = "Olá! Gostaria de solicitar um orçamento de instalação.";
-
 const iconProps = {
   width: 20,
   height: 20,
@@ -169,7 +167,7 @@ export default function InstalacaoArCondicionado() {
         }
         subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
         primaryCtaLabel="Solicitar Orçamento"
-        ctaMessage={CTA_MESSAGE}
+        defaultService="Instalação"
         videoSrc="/video/lp_instalacao.mp4"
         posterSrc="/video/lp_instalacao_poster.jpg"
         stats={stats}

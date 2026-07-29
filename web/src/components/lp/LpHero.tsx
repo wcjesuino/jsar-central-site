@@ -1,9 +1,9 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { GlassNav } from "@/components/shared/GlassNav";
-import { siteConfig, waLink } from "@/lib/site-config";
+import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
+import type { WhatsAppService } from "@/components/whatsapp/WhatsAppIntentContext";
 
 type Stat = { value: string; label: string; color: string };
 
@@ -12,7 +12,7 @@ type LpHeroProps = {
   headline: ReactNode;
   subheadline: string;
   primaryCtaLabel: string;
-  ctaMessage: string;
+  defaultService: WhatsAppService;
   videoSrc: string;
   posterSrc: string;
   stats: readonly Stat[];
@@ -24,7 +24,7 @@ export function LpHero({
   headline,
   subheadline,
   primaryCtaLabel,
-  ctaMessage,
+  defaultService,
   videoSrc,
   posterSrc,
   stats,
@@ -48,7 +48,7 @@ export function LpHero({
           <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
         </div>
 
-        <GlassNav ctaMessage={ctaMessage} />
+        <GlassNav />
 
         <div className="relative z-10 max-w-xl">
           <Badge variant="green" dot className="mb-5">
@@ -64,18 +64,17 @@ export function LpHero({
           </p>
 
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href={waLink(ctaMessage)} variant="primary" size="lg" analyticsEvent="whatsapp_click">
+            <WhatsAppButton defaultService={defaultService} variant="primary" size="lg">
               {primaryCtaLabel}
-            </Button>
-            <Button
-              href={siteConfig.whatsappHref}
+            </WhatsAppButton>
+            <WhatsAppButton
+              defaultService={defaultService}
               variant="outline"
               size="lg"
-              analyticsEvent="whatsapp_click"
               className="border-white/25 text-white hover:border-white hover:text-white"
             >
               Falar no WhatsApp
-            </Button>
+            </WhatsAppButton>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">

@@ -6,6 +6,7 @@ import {
   GoogleTagManagerNoscript,
 } from "@/components/analytics/GoogleTagManager";
 import { RouteChangeTracker } from "@/components/analytics/RouteChangeTracker";
+import { WhatsAppIntentProvider } from "@/components/whatsapp/WhatsAppIntentContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,8 +52,10 @@ export default function RootLayout({
         <GoogleTagManagerScript />
         <GoogleTagManagerNoscript />
         <RouteChangeTracker />
-        <main className="flex flex-1 flex-col">{children}</main>
-        <Footer />
+        <WhatsAppIntentProvider>
+          <main className="flex flex-1 flex-col">{children}</main>
+          <Footer />
+        </WhatsAppIntentProvider>
       </body>
     </html>
   );

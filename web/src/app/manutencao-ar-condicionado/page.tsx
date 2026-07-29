@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { LpHero } from "@/components/lp/LpHero";
-import { PricingPlans } from "@/components/lp/PricingPlans";
 import { Faq } from "@/components/lp/Faq";
 import { LeadFormSection } from "@/components/lp/LeadFormSection";
 import { Testimonials } from "@/components/shared/Testimonials";
-import { waLink } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Manutenção de Ar-Condicionado | JS AR Central",
@@ -12,40 +10,11 @@ export const metadata: Metadata = {
     "Manutenção preventiva e corretiva de ar-condicionado por técnicos credenciados pelos principais fabricantes. Rio de Janeiro e Baixada Fluminense.",
 };
 
-const CTA_MESSAGE = "Olá! Gostaria de solicitar um orçamento de manutenção.";
-
 const stats = [
   { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
   { value: "24h", label: "Atendimento emergencial", color: "text-cool" },
   { value: "100%", label: "Credenciado pelos fabricantes", color: "text-gold" },
 ] as const;
-
-const plans = [
-  {
-    name: "Essencial",
-    price: "R$149",
-    priceSuffix: "/mês",
-    description: "1 visita preventiva a cada 3 meses, para até 2 equipamentos.",
-    features: ["Limpeza de filtros", "Checagem de gás", "Relatório técnico"],
-    ctaLabel: "Pedir Orçamento",
-  },
-  {
-    name: "Profissional",
-    price: "R$269",
-    priceSuffix: "/mês",
-    description: "Visitas bimestrais, até 4 equipamentos, prioridade no atendimento emergencial.",
-    features: ["Tudo do Essencial", "Atendimento prioritário 24h", "Desconto em peças"],
-    ctaLabel: "Pedir Orçamento",
-    featured: true,
-  },
-  {
-    name: "Empresarial",
-    price: "Sob consulta",
-    description: "Condomínios, comércios e centrais de grande porte.",
-    features: ["Contrato dedicado", "SLA de resposta", "Gestor de conta"],
-    ctaLabel: "Falar com Especialista",
-  },
-];
 
 // Depoimentos placeholder (docs/copy-lp-manutencao.md) — substituir pelos
 // reais antes de publicar.
@@ -67,13 +36,6 @@ const testimonials = [
     role: "Rio de Janeiro — Manutenção Corretiva",
   },
 ];
-
-const trustCard = {
-  title: "Fechei o plano Profissional",
-  description:
-    "Para os 3 aparelhos de casa. Não preciso mais lembrar de agendar — eles que avisam quando está na hora — segundo relato de cliente de Nova Iguaçu.",
-  badgeLabel: "Plano Profissional",
-};
 
 const faqItems = [
   {
@@ -124,9 +86,9 @@ export default function ManutencaoArCondicionado() {
         }
         subheadline="Técnico não credenciado pode anular a garantia de fábrica do seu equipamento. Somos credenciados por Daikin, LG, Carrier, Gree, Fujitsu, Midea e outros fabricantes — manutenção correta, garantia intacta."
         primaryCtaLabel="Solicitar Orçamento"
-        ctaMessage={CTA_MESSAGE}
-        videoSrc="/video/hero_technician.mp4"
-        posterSrc="/video/hero_technician_poster.jpg"
+        defaultService="Manutenção"
+        videoSrc="/video/lp_manutencao.mp4"
+        posterSrc="/video/lp_manutencao_poster.jpg"
         stats={stats}
         floatingBadge={{
           title: "Manutenção em andamento",
@@ -154,14 +116,7 @@ export default function ManutencaoArCondicionado() {
         </div>
       </section>
 
-      <PricingPlans
-        title="Manutenção preventiva, sem surpresas"
-        subtitle="Contrato recorrente para não deixar a manutenção passar batido — com prioridade no atendimento emergencial."
-        plans={plans}
-        ctaHref={waLink(CTA_MESSAGE)}
-      />
-
-      <Testimonials testimonials={testimonials} trustCard={trustCard} />
+      <Testimonials testimonials={testimonials} />
 
       <LeadFormSection
         service="Manutenção"

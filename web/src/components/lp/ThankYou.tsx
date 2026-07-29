@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 import { ConversionTracker } from "@/components/analytics/ConversionTracker";
-import { siteConfig, waLink } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
+import type { WhatsAppService } from "@/components/whatsapp/WhatsAppIntentContext";
+
+function serviceFromParams(conversionParams?: Record<string, unknown>): WhatsAppService | undefined {
+  const raw = conversionParams?.service;
+  if (raw === "instalacao") return "Instalação";
+  if (raw === "manutencao") return "Manutenção";
+  return undefined;
+}
 
 export function ThankYou({
   title = "Recebemos seu pedido de orçamento!",
@@ -42,15 +50,14 @@ export function ThankYou({
         {body}
       </p>
 
-      <Button
-        href={waLink("Olá! Acabei de solicitar um orçamento pelo site.")}
+      <WhatsAppButton
+        defaultService={serviceFromParams(conversionParams)}
         variant="primary"
         size="lg"
-        analyticsEvent="whatsapp_click"
         className="mt-8"
       >
         Falar no WhatsApp agora
-      </Button>
+      </WhatsAppButton>
 
       <Link
         href="/"

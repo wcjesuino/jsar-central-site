@@ -9,8 +9,6 @@ export const metadata: Metadata = {
     "Fale com a JS AR Central pelo WhatsApp, telefone ou e-mail. Atendimento em toda a Baixada Fluminense e Rio de Janeiro.",
 };
 
-const CTA_MESSAGE = "Olá! Gostaria de falar com a equipe da JS AR Central.";
-
 const iconProps = {
   width: 20,
   height: 20,
@@ -86,7 +84,7 @@ export default function Contato() {
     <>
       <div className="mx-auto w-full max-w-[1280px] p-3 sm:p-5">
         <section className="relative overflow-hidden rounded-hero bg-surface-dark px-8 py-10 sm:py-14">
-          <GlassNav ctaMessage={CTA_MESSAGE} />
+          <GlassNav />
           <div className="relative z-10 mx-auto mt-12 max-w-2xl text-center">
             <div className="font-mono text-xs font-medium tracking-widest text-brand">
               FALE COM A GENTE
@@ -123,7 +121,7 @@ export default function Contato() {
                 <div className="text-xs font-semibold tracking-wide text-gray-400 uppercase">
                   {c.label}
                 </div>
-                <div className="font-editorial mt-1 text-lg font-bold text-gray-900">
+                <div className="font-editorial mt-1 text-lg font-bold break-words text-gray-900">
                   {c.value}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-gray-500">{c.legend}</p>

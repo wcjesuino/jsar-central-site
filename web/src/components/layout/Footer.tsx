@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { siteConfig } from "@/lib/site-config";
+import { useWhatsAppIntent } from "@/components/whatsapp/WhatsAppIntentContext";
 
 function InstagramIcon() {
   return (
@@ -21,6 +24,8 @@ function FacebookIcon() {
 }
 
 export function Footer() {
+  const { open } = useWhatsAppIntent();
+
   return (
     <footer className="bg-surface-dark px-4 py-12 sm:px-6">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
@@ -28,9 +33,13 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Logo variant="dark" size={26} />
             <div className="flex flex-col gap-1 text-sm text-white/50">
-              <a href={siteConfig.whatsappHref} className="transition-colors hover:text-white">
+              <button
+                type="button"
+                onClick={() => open()}
+                className="text-left transition-colors hover:text-white"
+              >
                 {siteConfig.phoneDisplay}
-              </a>
+              </button>
               <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-white">
                 {siteConfig.email}
               </a>
