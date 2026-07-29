@@ -104,16 +104,16 @@ Manter em 1 grupo de anúncio nesta fase inicial — orçamento não comporta se
 
 Status atual (verificado no código do site):
 
-1. ✅ Tag do Google Ads (conversão) instalada via GTM — `NEXT_PUBLIC_GTM_ID=GTM-P8T43FVN` configurado em produção em 2026-07-29 e validado (script carrega, `dataLayer` dispara `page_view` em cada navegação). Falta apenas configurar dentro do próprio GTM a tag de conversão do Google Ads vinculada aos eventos `generate_lead`/`whatsapp_click` já disparados pelo site.
+1. ✅ Tag do Google Ads (conversão) instalada via GTM — `NEXT_PUBLIC_GTM_ID=GTM-P8T43FVN` configurado em produção em 2026-07-29. Duas ações de conversão criadas na conta (`AW-18340984715`): "Envio de Formulário" (label `ggc0CJ_60tgcEIvv1KlE`, gatilho `generate_lead`) e "Clique no WhatsApp" (label `oNu_CND40tgcEIvv1KlE`, gatilho `whatsapp_click`). Tags publicadas no GTM e **validadas em produção via rede real** — os dois pixels de conversão dispararam com status 200.
 2. ✅ Evento de conversão no clique do botão de WhatsApp — `whatsapp_click` já disparado via `dataLayer` em todos os CTAs de WhatsApp (Hero, thank-you page).
 3. ✅ Evento de conversão no envio do formulário (thank-you page) — `generate_lead` disparado nas duas thank-you pages (`instalacao-ar-condicionado/obrigado` e `manutencao-ar-condicionado/obrigado`), com `service` diferenciando Instalação/Manutenção.
 4. ⬜ Evento de conversão no clique do telefone — não implementado ainda (o site usa WhatsApp como canal principal, não há link `tel:` clicável hoje).
 
 **Bônus não previsto neste plano original:** os leads do formulário agora também caem automaticamente no CRM do Ads Studio (funil "novo"), com notificação por e-mail ao cliente — dá uma segunda fonte de verdade pra cruzar com as conversões do Google Ads e validar que o CPL calculado bate com leads reais recebidos.
 
-Falta só configurar a tag de conversão do Google Ads dentro do GTM (vinculando aos eventos já disparados) e, opcionalmente, o item 4 (rastrear ligação) antes de ativar qualquer campanha.
+Falta só o item 4 (opcional, rastrear clique em ligação) — o tracking de conversão essencial já está 100% pronto e validado.
 
-**Status das campanhas (atualizado em 2026-07-29):** as duas campanhas Search deste plano já foram criadas na conta real da JS AR Central via API (Google Ads customer ID 1384765107, sob a MCC Agência Reino), com a estrutura exata descrita acima — geo por cidade, keywords, negativas, RSA com os headlines/descriptions validados. **Estão pausadas de propósito**, aguardando: (1) corte de DNS pra trocar a Final URL pro domínio próprio, (2) tag de conversão do Google Ads configurada no GTM, (3) revisão final do cliente antes de ativar.
+**Status das campanhas (atualizado em 2026-07-29):** as duas campanhas Search deste plano já foram criadas na conta real da JS AR Central via API (Google Ads customer ID 1384765107, sob a MCC Agência Reino), com a estrutura exata descrita acima — geo por cidade, keywords, negativas, RSA com os headlines/descriptions validados. **Estão pausadas de propósito**, aguardando: (1) corte de DNS pra trocar a Final URL pro domínio próprio, (2) revisão final do cliente antes de ativar. O tracking de conversão (item anterior) não é mais bloqueio.
 
 ## Estratégia de lance sugerida
 
