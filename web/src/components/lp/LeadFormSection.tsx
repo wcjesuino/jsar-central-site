@@ -2,10 +2,12 @@ import { LeadForm } from "@/components/lp/LeadForm";
 
 export function LeadFormSection({
   service,
+  thankYouPath,
   title = "Solicite seu orçamento",
   description = "Preencha os dados abaixo — um técnico credenciado entra em contato pelo WhatsApp.",
 }: {
   service: string;
+  thankYouPath: string;
   title?: string;
   description?: string;
 }) {
@@ -19,7 +21,7 @@ export function LeadFormSection({
           <p className="mt-2 text-sm text-gray-500">{description}</p>
         </div>
         <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-          <LeadForm service={service} />
+          <LeadForm service={service} thankYouPath={thankYouPath} />
         </div>
       </div>
     </section>

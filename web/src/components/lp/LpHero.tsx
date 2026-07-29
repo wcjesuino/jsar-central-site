@@ -64,13 +64,14 @@ export function LpHero({
           </p>
 
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href={waLink(ctaMessage)} variant="primary" size="lg">
+            <Button href={waLink(ctaMessage)} variant="primary" size="lg" analyticsEvent="whatsapp_click">
               {primaryCtaLabel}
             </Button>
             <Button
               href={siteConfig.whatsappHref}
               variant="outline"
               size="lg"
+              analyticsEvent="whatsapp_click"
               className="border-white/25 text-white hover:border-white hover:text-white"
             >
               Falar no WhatsApp

@@ -34,6 +34,7 @@ export function GlassNav({ ctaMessage }: { ctaMessage: string }) {
           href={waLink(ctaMessage)}
           variant="primary"
           size="sm"
+          analyticsEvent="whatsapp_click"
           className="!bg-white !text-gray-900 hover:!bg-gray-100"
         >
           Pedir Orçamento

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Variant = "primary" | "cool" | "dark" | "outline";
 type Size = "sm" | "md" | "lg";
@@ -25,6 +28,8 @@ type CommonProps = {
   variant?: Variant;
   size?: Size;
   className?: string;
+  /** Nome do evento GA4/GTM a disparar no clique (ex: "whatsapp_click"). */
+  analyticsEvent?: string;
 };
 
 type ButtonAsButton = CommonProps &
@@ -37,15 +42,35 @@ export function Button({
   variant = "primary",
   size = "md",
   className = "",
+  analyticsEvent,
+  onClick,
   ...props
 }: ButtonAsButton | ButtonAsLink) {
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
+  const handleClick = analyticsEvent
+    ? (e: React.MouseEvent<HTMLAnchorElement & HTMLButtonElement>) => {
+        trackEvent(analyticsEvent);
+        onClick?.(e as never);
+      }
+    : onClick;
+
   if ("href" in props && props.href) {
-    return <Link {...props} href={props.href} className={classes} />;
+    return (
+      <Link
+        {...props}
+        href={props.href}
+        className={classes}
+        onClick={handleClick as never}
+      />
+    );
   }
 
   return (
-    <button {...(props as ButtonHTMLAttributes<HTMLButtonElement>)} className={classes} />
+    <button
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
+      className={classes}
+      onClick={handleClick as never}
+    />
   );
 }

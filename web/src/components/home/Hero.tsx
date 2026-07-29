@@ -52,10 +52,16 @@ export function Hero() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href={waLink(CTA_MESSAGE)} variant="primary" size="lg">
+          <Button href={waLink(CTA_MESSAGE)} variant="primary" size="lg" analyticsEvent="whatsapp_click">
             Solicitar Orçamento
           </Button>
-          <Button href={siteConfig.whatsappHref} variant="outline" size="lg" className="border-white/25 text-white hover:border-white hover:text-white">
+          <Button
+            href={siteConfig.whatsappHref}
+            variant="outline"
+            size="lg"
+            analyticsEvent="whatsapp_click"
+            className="border-white/25 text-white hover:border-white hover:text-white"
+          >
             Falar no WhatsApp
           </Button>
         </div>

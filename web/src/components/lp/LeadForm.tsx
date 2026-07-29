@@ -1,13 +1,20 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "idle" | "submitting" | "error";
 
-export function LeadForm({ service }: { service: string }) {
+export function LeadForm({
+  service,
+  thankYouPath,
+}: {
+  service: string;
+  thankYouPath: string;
+}) {
   const pathname = usePathname();
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -47,27 +54,14 @@ export function LeadForm({ service }: { service: string }) {
         return;
       }
 
-      setStatus("success");
       form.reset();
+      router.push(thankYouPath);
     } catch {
       setStatus("error");
       setErrorMessage(
         "Não conseguimos enviar seu pedido agora. Tente novamente ou chame no WhatsApp.",
       );
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-6 text-center">
-        <p className="font-editorial text-lg font-semibold text-gray-900">
-          Recebemos seu pedido!
-        </p>
-        <p className="mt-1 text-sm text-gray-600">
-          Um técnico da JS AR Central vai entrar em contato pelo WhatsApp em breve.
-        </p>
-      </div>
-    );
   }
 
   return (

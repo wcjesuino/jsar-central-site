@@ -180,7 +180,10 @@ export default function InstalacaoArCondicionado() {
       />
       <Differentiators title="Por que instalar com a JS AR Central" items={differentiators} />
       <Testimonials testimonials={testimonials} trustCard={trustCard} />
-      <LeadFormSection service="Instalação" />
+      <LeadFormSection
+        service="Instalação"
+        thankYouPath="/instalacao-ar-condicionado/obrigado"
+      />
       <Faq items={faqItems} />
     </>
   );
