@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 type Status = "idle" | "submitting" | "error";
@@ -129,6 +130,14 @@ export function LeadForm({
       >
         {status === "submitting" ? "Enviando..." : "Solicitar Orçamento"}
       </Button>
+
+      <p className="text-xs leading-relaxed text-gray-400">
+        Ao enviar, você concorda com o uso dos seus dados conforme nossa{" "}
+        <Link href="/politica-de-privacidade" className="underline hover:text-gray-600">
+          Política de Privacidade
+        </Link>
+        , só pra retornar seu contato.
+      </p>
     </form>
   );
 }
