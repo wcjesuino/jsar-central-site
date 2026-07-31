@@ -18,7 +18,7 @@ Técnico não credenciado pode anular a garantia de fábrica do seu equipamento.
 **CTA secundário:** Falar no WhatsApp
 
 **Stats da faixa inferior do hero (mesmo padrão da Home):**
-- +10 anos — De atuação no Rio de Janeiro
+- +31 anos — De atuação no Rio de Janeiro
 - 24h — Atendimento emergencial
 - 100% — Credenciado pelos fabricantes
 

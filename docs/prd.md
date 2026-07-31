@@ -13,7 +13,7 @@
 
 ### Background Context
 
-A JS AR Central é uma empresa de instalação e manutenção de ar-condicionado (especialista em sistemas centrais, mas atende split e outros equipamentos) atuando há mais de 10 anos no Rio de Janeiro e Baixada Fluminense. A empresa é credenciada por múltiplos fabricantes (Daikin, LG, Carrier, Gree, Fujitsu, Midea, entre outros), o que é um diferencial real: manutenção por técnico não credenciado pode anular a garantia de fábrica do cliente.
+A JS AR Central é uma empresa de instalação e manutenção de ar-condicionado (especialista em sistemas centrais, mas atende split e outros equipamentos) atuando há mais de 31 anos no Rio de Janeiro e Baixada Fluminense. A empresa é credenciada por múltiplos fabricantes (Daikin, LG, Carrier, Gree, Fujitsu, Midea, entre outros), o que é um diferencial real: manutenção por técnico não credenciado pode anular a garantia de fábrica do cliente.
 
 O site atual é um WordPress/Elementor publicado em 2021, e o acesso administrativo a ele foi perdido — não há mais como editar páginas, instalar tracking ou configurar redirects diretamente nele. Isso, somado à necessidade de uma base mais rápida e controlável para sustentar tráfego pago, motivou a decisão de reconstruir o site do zero em Next.js, hospedado na Vercel, com o domínio atual apontado via DNS quando o novo site estiver pronto. O blog do site atual será descontinuado (não migra). A identidade visual foi mantida (mesma logo), mas passou por um refresh formal de paleta e tipografia, já validado em um design system dedicado.
 

@@ -11,7 +11,7 @@ Instalação de ar-condicionado
 feita para durar — e para valer a garantia.
 
 **Subheadline:**
-Central, split ou multi-split: instalamos com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense.
+Central, split ou multi-split: instalamos com a técnica certificada pelo fabricante do seu equipamento. Mais de 31 anos atendendo o Rio de Janeiro e a Baixada Fluminense.
 
 **CTA primário:** Solicitar Orçamento de Instalação
 **CTA secundário:** Falar no WhatsApp
@@ -27,8 +27,8 @@ De um split residencial a um sistema central completo para comércio ou condomí
 ### 3. Atendimento 24 horas
 Emergência não escolhe hora. Nosso time responde a chamados urgentes fora do horário comercial, com prioridade para clientes da Baixada Fluminense e Rio de Janeiro.
 
-### 4. Mais de 10 anos de experiência
-Uma década instalando e mantendo ar-condicionado na mesma região nos ensinou o que funciona: instalação bem feita evita 90% dos chamados de manutenção no primeiro ano.
+### 4. Mais de 31 anos de experiência
+Mais de 30 anos instalando e mantendo ar-condicionado na mesma região nos ensinou o que funciona: instalação bem feita evita 90% dos chamados de manutenção no primeiro ano.
 
 ## Prova Social
 

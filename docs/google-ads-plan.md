@@ -1,6 +1,6 @@
 # JS AR Central — Plano de Campanhas Google Ads
 
-> **Status (atualizado):** as duas landing pages já estão no ar e revisadas — `/instalacao-ar-condicionado` e `/manutencao-ar-condicionado`, ambas com formulário + WhatsApp funcionando e integradas ao CRM de leads. Headlines e descriptions abaixo já foram conferidas contra os limites reais do Google Ads (30/90 caracteres) — ver seção de validação no fim de cada campanha.
+> **Status (atualizado 2026-07-30):** as duas landing pages já estão no ar e revisadas — `/instalacao-ar-condicionado` e `/manutencao-ar-condicionado`, ambas com formulário + WhatsApp funcionando e integradas ao CRM de leads. Headlines e descriptions abaixo já foram conferidas contra os limites reais do Google Ads (30/90 caracteres) — ver seção de validação no fim de cada campanha. **A estrutura de campanhas abaixo (2 campanhas separadas) foi consolidada em produção**: hoje é 1 campanha única "Instalação e Manutenção de Ar-Condicionado" (R$16,50/dia), com 2 grupos de anúncio (Manutenção AC, Instalação AC) mantendo as mesmas keywords/RSA descritas aqui — decisão tomada após pesquisa sobre orçamento baixo fragmentado (ver memória do projeto). O conteúdo de keywords/headlines/descriptions por serviço abaixo continua válido, só a divisão em 2 campanhas separadas que não reflete mais a conta real.
 >
 > **Orçamento:** R$500/mês total (~R$16,50/dia). Este é um orçamento de **teste/validação**, não de escala — a estrutura abaixo é propositalmente enxuta (poucos grupos de anúncio por campanha) para não pulverizar verba e conseguir dados de conversão mais rápido. Reavaliar estrutura assim que houver orçamento maior.
 >
@@ -49,7 +49,7 @@ Manter em 1 grupo de anúncio nesta fase inicial — orçamento não comporta se
 **Headlines (validadas ≤30 caracteres — limite real do Google Ads):**
 1. "Manutenção de Ar-Condicionado" (29) / "Credenciada de Fábrica" (22) / "Atendimento em Até 24h" (22)
 2. "Seu Ar Não Gela?" (16) / "Técnico Credenciado Hoje" (24) / "Garantia de Fábrica Preservada" (30)
-3. "Manutenção, Garantia Intacta" (28) / "+10 Anos no Rio de Janeiro" (26) / "Orçamento pelo WhatsApp" (23)
+3. "Manutenção, Garantia Intacta" (28) / "+31 Anos no Rio de Janeiro" (26) / "Orçamento pelo WhatsApp" (23)
 
 **Descriptions (validadas ≤90 caracteres — a versão anterior deste doc excedia bastante o limite; dividido em 4 descriptions curtas em vez de 2 longas):**
 1. "Manutenção preventiva e corretiva com técnicos credenciados de fábrica." (71)
@@ -61,7 +61,7 @@ Manter em 1 grupo de anúncio nesta fase inicial — orçamento não comporta se
 - Extensão de chamada (com o número já usado no site: (21) 96408-8936)
 - Extensão de local (vinculada ao Google Business Profile)
 - Snippets estruturados: tipo "Serviços" → Manutenção preventiva, Manutenção corretiva, Limpeza, Higienização
-- Extensão de frase de destaque: "Atendimento 24h", "Credenciado de fábrica", "+10 anos de experiência"
+- Extensão de frase de destaque: "Atendimento 24h", "Credenciado de fábrica", "+31 anos de experiência"
 
 ---
 
@@ -88,7 +88,7 @@ Manter em 1 grupo de anúncio nesta fase inicial — orçamento não comporta se
 **Headlines (validadas ≤30 caracteres):**
 1. "Instalação de Ar-Condicionado" (29) / "Central e Split" (15) / "Credenciado de Fábrica" (22)
 2. "Instale Certo, Sem Riscos" (25) / "Técnicos Credenciados" (21) / "Orçamento pelo WhatsApp" (23)
-3. "Instale Central ou Split" (24) / "+10 Anos no Rio de Janeiro" (26) / "Atendimento 24h" (15)
+3. "Instale Central ou Split" (24) / "+31 Anos no Rio de Janeiro" (26) / "Atendimento 24h" (15)
 
 **Descriptions (validadas ≤90 caracteres — dividido em 4 descriptions curtas em vez de 2 longas):**
 1. "Instalação de ar-condicionado central e split com credenciamento oficial." (73)
