@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
+  { value: "+31 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
   { value: "24h", label: "Atendimento emergencial", color: "text-cool" },
   { value: "100%", label: "Credenciado pelos fabricantes", color: "text-gold" },
 ] as const;

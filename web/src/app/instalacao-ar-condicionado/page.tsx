@@ -76,9 +76,9 @@ const differentiators = [
   },
   {
     icon: <AwardIcon />,
-    title: "Mais de 10 anos de experiência",
+    title: "Mais de 31 anos de experiência",
     description:
-      "Uma década instalando na mesma região nos ensinou: instalação bem feita evita 9 em cada 10 chamados de manutenção no primeiro ano.",
+      "Mais de 31 anos instalando na mesma região já nos ensinaram: instalação bem feita evita 9 em cada 10 chamados de manutenção no primeiro ano.",
   },
 ];
 
@@ -144,7 +144,7 @@ const faqItems = [
 ];
 
 const stats = [
-  { value: "+10 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
+  { value: "+31 anos", label: "De atuação no Rio de Janeiro", color: "text-brand" },
   { value: "24h", label: "Atendimento emergencial", color: "text-cool" },
   { value: "100%", label: "Credenciado pelos fabricantes", color: "text-gold" },
 ] as const;
@@ -165,7 +165,7 @@ export default function InstalacaoArCondicionado() {
             <span className="text-gray-400">e para valer a garantia.</span>
           </>
         }
-        subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 10 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
+        subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 31 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
         primaryCtaLabel="Solicitar Orçamento"
         defaultService="Instalação"
         videoSrc="/video/lp_instalacao.mp4"
