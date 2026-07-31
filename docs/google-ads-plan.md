@@ -6,6 +6,8 @@
 >
 > **Landing pages de destino:** URLs atuais apontam para o domínio de preview da Vercel (`jsar-central-site-wagners-projects-3f297ba1.vercel.app`), já que o corte de DNS de `jsarcentral.com.br` (Story 5.3) ainda não aconteceu. **Não recomendo ativar campanhas pagas com esse domínio de preview** — além de não passar confiança pra quem clica no anúncio, o Vercel pode trocar essa URL a qualquer redeploy sem alias fixo. Atualizar os "Final URL" de cada anúncio para `https://jsarcentral.com.br/...` assim que o DNS for cortado, antes de ligar qualquer campanha de verdade.
 >
+> **Agendamento de anúncios (atualizado 2026-07-31):** ads_schedule configurado para **06h–22h, todos os dias da semana** (inclusive fins de semana — o contato de plantão responde sábado e domingo). Corte pensado para eliminar cliques de baixa intenção/impulso na madrugada (22h–06h), sem cortar a janela de intenção real do fim de tarde/início da noite (18h–22h, quando a pessoa chega em casa e percebe que o ar quebrou). Decisão do cliente, não é baseada em dado de conversão ainda — reavaliar com dados reais depois de accumular volume.
+>
 > **Geografia (atualizado 2026-07-31):** a pedido do cliente, a segmentação por lista de cidades foi substituída por **raio de 5km a partir da sede** (Av. Nilo Peçanha, 460, Centro, Duque de Caxias-RJ, CEP 25010-144 — lat -22.78685, lon -43.3119915). Aplicado na campanha unificada via `campaign_criterion.proximity`. Um raio de 5km é bem mais restrito que a cobertura anterior (Rio capital + 8 cidades da Baixada) — cabe reavaliar com o cliente se cobre a área real de atendimento, já que Nova Iguaçu/São João de Meriti/etc. podem ficar parcialmente ou totalmente fora desse raio.
 
 ## Divisão de orçamento
