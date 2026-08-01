@@ -29,7 +29,7 @@ export function Hero() {
 
       <GlassNav />
 
-      <div className="relative z-10 max-w-xl">
+      <div className="relative z-10 mt-8 max-w-xl sm:mt-0">
         <div className="mb-3 hidden sm:mb-5 sm:block">
           <Badge variant="green" dot>
             Atendimento 24h disponível
@@ -56,13 +56,13 @@ export function Hero() {
           </WhatsAppButton>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-5 sm:mt-8 sm:gap-y-8">
+        <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 sm:mt-8 sm:flex sm:flex-wrap sm:gap-8">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
+              <div className={`font-editorial text-xl font-semibold tracking-tight sm:text-2xl ${stat.color}`}>
                 {stat.value}
               </div>
-              <div className="mt-0.5 text-xs text-white/35">{stat.label}</div>
+              <div className="mt-0.5 text-[11px] text-white/35 sm:text-xs">{stat.label}</div>
             </div>
           ))}
         </div>
