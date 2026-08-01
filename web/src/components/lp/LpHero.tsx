@@ -31,8 +31,8 @@ export function LpHero({
   floatingBadge,
 }: LpHeroProps) {
   return (
-    <div className="mx-auto w-full max-w-[1280px] p-3 sm:p-5">
-      <section className="relative flex min-h-[640px] flex-col justify-between overflow-hidden rounded-hero bg-surface-dark p-8">
+    <div className="mx-auto w-full max-w-[1280px] p-4 sm:p-5">
+      <section className="relative flex min-h-[560px] flex-col justify-between overflow-hidden rounded-hero bg-surface-dark p-5 sm:min-h-[640px] sm:p-8">
         <div className="absolute inset-0">
           <video
             src={videoSrc}
@@ -50,40 +50,34 @@ export function LpHero({
 
         <GlassNav />
 
-        <div className="relative z-10 max-w-xl">
-          <Badge variant="green" dot className="mb-5">
-            {badgeLabel}
-          </Badge>
+        <div className="relative z-10 mt-8 max-w-xl sm:mt-0">
+          <div className="mb-3 hidden sm:mb-5 sm:block">
+            <Badge variant="green" dot>
+              {badgeLabel}
+            </Badge>
+          </div>
 
-          <h1 className="font-editorial text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl">
+          <h1 className="font-editorial text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl sm:leading-[1.08]">
             {headline}
           </h1>
 
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55 sm:text-base">
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
             {subheadline}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-4">
+          <div className="mt-5 flex flex-wrap gap-4 sm:mt-6">
             <WhatsAppButton defaultService={defaultService} variant="primary" size="lg">
               {primaryCtaLabel}
             </WhatsAppButton>
-            <WhatsAppButton
-              defaultService={defaultService}
-              variant="outline"
-              size="lg"
-              className="border-white/25 text-white hover:border-white hover:text-white"
-            >
-              Falar no WhatsApp
-            </WhatsAppButton>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">
+          <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 sm:mt-8 sm:flex sm:flex-wrap sm:gap-8">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
+                <div className={`font-editorial text-xl font-semibold tracking-tight sm:text-2xl ${stat.color}`}>
                   {stat.value}
                 </div>
-                <div className="mt-0.5 text-xs text-white/35">{stat.label}</div>
+                <div className="mt-0.5 text-[11px] text-white/35 sm:text-xs">{stat.label}</div>
               </div>
             ))}
           </div>
