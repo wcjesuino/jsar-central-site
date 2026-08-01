@@ -11,7 +11,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[640px] flex-col justify-between overflow-hidden rounded-t-hero bg-surface-dark p-8">
+    <section className="relative flex min-h-[560px] flex-col justify-between overflow-hidden rounded-t-hero bg-surface-dark p-5 sm:min-h-[640px] sm:p-8">
       <div className="absolute inset-0">
         <video
           src="/video/hero_technician.mp4"
@@ -30,11 +30,13 @@ export function Hero() {
       <GlassNav />
 
       <div className="relative z-10 max-w-xl">
-        <Badge variant="green" dot className="mb-5">
-          Atendimento 24h disponível
-        </Badge>
+        <div className="mb-3 hidden sm:mb-5 sm:block">
+          <Badge variant="green" dot>
+            Atendimento 24h disponível
+          </Badge>
+        </div>
 
-        <h1 className="font-editorial text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+        <h1 className="font-editorial text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl sm:leading-[1.05] md:text-6xl">
           Ar-condicionado
           <br />
           <span className="text-gray-400">instalado certo.</span>
@@ -42,26 +44,19 @@ export function Hero() {
           Garantia intacta.
         </h1>
 
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55 sm:text-base">
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
           Instalação e manutenção credenciada pelos principais fabricantes —
           a única forma de manter a garantia de fábrica válida. Atuação em
           toda a Baixada Fluminense e Rio de Janeiro.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-5 flex flex-wrap gap-4 sm:mt-6">
           <WhatsAppButton variant="primary" size="lg">
             Solicitar Orçamento
           </WhatsAppButton>
-          <WhatsAppButton
-            variant="outline"
-            size="lg"
-            className="border-white/25 text-white hover:border-white hover:text-white"
-          >
-            Falar no WhatsApp
-          </WhatsAppButton>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-5">
+        <div className="mt-6 flex flex-wrap gap-8 border-t border-white/10 pt-5 sm:mt-8">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
