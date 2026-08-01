@@ -56,7 +56,7 @@ export function Hero() {
           </WhatsAppButton>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-8 border-t border-white/10 pt-5 sm:mt-8">
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-5 sm:mt-8 sm:gap-y-8">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className={`font-editorial text-2xl font-semibold tracking-tight ${stat.color}`}>
