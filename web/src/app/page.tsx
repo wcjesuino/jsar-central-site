@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { ManufacturerTicker } from "@/components/home/ManufacturerTicker";
 import { Services } from "@/components/home/Services";
+import { Credentials } from "@/components/shared/Credentials";
 import { Testimonials } from "@/components/shared/Testimonials";
 
 // Depoimentos abaixo são placeholders (Story 2.4, AC1) — substituir por
@@ -39,6 +40,7 @@ export default function Home() {
         <ManufacturerTicker />
       </div>
       <Services />
+      <Credentials />
       <Testimonials testimonials={testimonials} trustCard={trustCard} />
     </>
   );

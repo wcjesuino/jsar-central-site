@@ -3,6 +3,7 @@ import { LpHero } from "@/components/lp/LpHero";
 import { Differentiators } from "@/components/lp/Differentiators";
 import { Faq } from "@/components/lp/Faq";
 import { LeadFormSection } from "@/components/lp/LeadFormSection";
+import { Credentials } from "@/components/shared/Credentials";
 import { Testimonials } from "@/components/shared/Testimonials";
 
 export const metadata: Metadata = {
@@ -177,6 +178,7 @@ export default function InstalacaoArCondicionado() {
         }}
       />
       <Differentiators title="Por que instalar com a JS AR Central" items={differentiators} />
+      <Credentials />
       <Testimonials testimonials={testimonials} trustCard={trustCard} />
       <LeadFormSection
         service="Instalação"

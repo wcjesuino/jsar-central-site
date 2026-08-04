@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LpHero } from "@/components/lp/LpHero";
 import { Faq } from "@/components/lp/Faq";
 import { LeadFormSection } from "@/components/lp/LeadFormSection";
+import { Credentials } from "@/components/shared/Credentials";
 import { Testimonials } from "@/components/shared/Testimonials";
 
 export const metadata: Metadata = {
@@ -116,6 +117,7 @@ export default function ManutencaoArCondicionado() {
         </div>
       </section>
 
+      <Credentials />
       <Testimonials testimonials={testimonials} />
 
       <LeadFormSection
