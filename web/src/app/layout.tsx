@@ -7,6 +7,7 @@ import {
 } from "@/components/analytics/GoogleTagManager";
 import { RouteChangeTracker } from "@/components/analytics/RouteChangeTracker";
 import { WhatsAppIntentProvider } from "@/components/whatsapp/WhatsAppIntentContext";
+import { FloatingWhatsAppButton } from "@/components/whatsapp/FloatingWhatsAppButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -55,6 +56,7 @@ export default function RootLayout({
         <WhatsAppIntentProvider>
           <main className="flex flex-1 flex-col">{children}</main>
           <Footer />
+          <FloatingWhatsAppButton />
         </WhatsAppIntentProvider>
       </body>
     </html>
