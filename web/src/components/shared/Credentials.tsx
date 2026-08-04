@@ -5,6 +5,9 @@ import Image from "next/image";
 
 type Credential = {
   badge: string;
+  badgeWidth: number;
+  badgeHeight: number;
+  wide?: boolean;
   name: string;
   certificate: string;
   certificateAlt: string;
@@ -13,30 +16,43 @@ type Credential = {
 const credentials: Credential[] = [
   {
     badge: "/credentials/badge_midea.png",
+    badgeWidth: 320,
+    badgeHeight: 320,
     name: "Midea",
     certificate: "/credentials/certificado_midea_carrier.jpg",
     certificateAlt: "Certificado de credenciamento Midea Carrier",
   },
   {
     badge: "/credentials/badge_carrier.png",
+    badgeWidth: 320,
+    badgeHeight: 320,
     name: "Carrier",
     certificate: "/credentials/certificado_midea_carrier.jpg",
     certificateAlt: "Certificado de credenciamento Midea Carrier",
   },
   {
     badge: "/credentials/badge_springer.png",
+    badgeWidth: 320,
+    badgeHeight: 320,
     name: "Springer",
     certificate: "/credentials/certificado_midea_carrier.jpg",
     certificateAlt: "Certificado de credenciamento Midea Carrier",
   },
   {
     badge: "/credentials/badge_toshiba.png",
+    badgeWidth: 320,
+    badgeHeight: 320,
     name: "Toshiba",
     certificate: "/credentials/certificado_midea_carrier.jpg",
     certificateAlt: "Certificado de credenciamento Midea Carrier",
   },
   {
-    badge: "/credentials/badge_tcl.png",
+    // Certificado inteiro (não recortado em selo) — o recorte circular
+    // ficava com baixa qualidade visual, o documento original é nítido.
+    badge: "/credentials/certificado_tcl_semp.jpg",
+    badgeWidth: 1080,
+    badgeHeight: 738,
+    wide: true,
     name: "TCL SEMP",
     certificate: "/credentials/certificado_tcl_semp.jpg",
     certificateAlt: "Certificado de credenciamento TCL SEMP",
@@ -95,9 +111,13 @@ export function Credentials() {
               <Image
                 src={c.badge}
                 alt={`Selo de credenciamento ${c.name}`}
-                width={96}
-                height={96}
-                className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+                width={c.badgeWidth}
+                height={c.badgeHeight}
+                className={
+                  c.wide
+                    ? "h-24 w-auto rounded-md object-contain sm:h-28"
+                    : "h-20 w-20 object-contain sm:h-24 sm:w-24"
+                }
               />
               <span className="text-xs font-semibold text-gray-600">{c.name}</span>
             </button>
