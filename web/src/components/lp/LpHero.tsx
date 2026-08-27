@@ -41,6 +41,9 @@ export function LpHero({
             muted
             loop
             playsInline
+            preload="metadata"
+            // @ts-expect-error -- fetchPriority is valid on <video> in browsers but missing from React's video element typings
+            fetchPriority="low"
             className="h-full w-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-20% via-surface-dark/55 via-48% to-surface-dark/12" />
