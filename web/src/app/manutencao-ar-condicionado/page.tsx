@@ -65,9 +65,9 @@ const faqItems = [
       "Sim — como somos credenciados diretamente pelos fabricantes, o serviço é reconhecido oficialmente e não gera risco à garantia, diferente de um técnico avulso não certificado.",
   },
   {
-    question: "Qual o valor da manutenção avulsa (sem plano)?",
+    question: "Quanto custa a manutenção de ar-condicionado?",
     answer:
-      "Varia conforme o tipo e porte do equipamento. Preencha o formulário ou chame no WhatsApp para um orçamento sem compromisso.",
+      "A manutenção avulsa (sem plano) começa a partir de R$700, variando conforme o tipo e porte do equipamento. Preencha o formulário ou chame no WhatsApp para um orçamento exato, sem compromisso.",
   },
 ];
 
