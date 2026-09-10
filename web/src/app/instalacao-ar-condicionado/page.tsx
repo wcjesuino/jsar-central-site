@@ -4,12 +4,13 @@ import { Differentiators } from "@/components/lp/Differentiators";
 import { Faq } from "@/components/lp/Faq";
 import { LeadFormSection } from "@/components/lp/LeadFormSection";
 import { Credentials } from "@/components/shared/Credentials";
-import { Testimonials } from "@/components/shared/Testimonials";
+import { JsonLd, faqPageJsonLd } from "@/components/shared/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Instalação de Ar-Condicionado | JS AR Central",
+  title: "Instalação de Ar-Condicionado em Duque de Caxias e Baixada | JS AR Central",
   description:
-    "Instalação de ar-condicionado central, split ou multi-split com técnica certificada pelo fabricante. Rio de Janeiro e Baixada Fluminense.",
+    "Instalação de ar-condicionado split, multi-split e central com técnica certificada pelo fabricante, em Duque de Caxias e Baixada Fluminense. Orçamento sem taxa de visita na nossa área.",
+  alternates: { canonical: "/instalacao-ar-condicionado" },
 };
 
 const iconProps = {
@@ -73,7 +74,7 @@ const differentiators = [
     icon: <ClockIcon />,
     title: "Atendimento 24 horas",
     description:
-      "Emergência não avisa. Respondemos chamados urgentes a qualquer hora, com prioridade para Rio de Janeiro e Baixada Fluminense.",
+      "Emergência não avisa. Respondemos chamados urgentes a qualquer hora, com prioridade para Duque de Caxias e Baixada Fluminense.",
   },
   {
     icon: <AwardIcon />,
@@ -83,39 +84,16 @@ const differentiators = [
   },
 ];
 
-// Depoimentos placeholder (docs/copy-lp-instalacao.md) — substituir pelos
-// reais antes de publicar.
-const testimonials = [
-  {
-    heading: '"Fiquei tranquilo quanto à garantia"',
-    quote:
-      "Instalaram o ar central do meu apartamento em Duque de Caxias e me mostraram o certificado de credenciamento Daikin antes de começar.",
-    initial: "R",
-    name: "Roberto A.",
-    role: "Duque de Caxias — Instalação Central",
-  },
-  {
-    heading: '"Terminaram no mesmo dia"',
-    quote:
-      "Pedi orçamento para 3 splits no meu escritório em Nova Iguaçu. Chegaram no horário combinado e terminaram no mesmo dia.",
-    initial: "F",
-    name: "Fernanda M.",
-    role: "Nova Iguaçu — Instalação Multi-Split",
-  },
-];
-
-const trustCard = {
-  title: "Por que credenciamento importa",
-  description:
-    "A JS AR Central foi a única que explicou por que a marca do equipamento precisa de técnico credenciado — segundo relato de cliente da Zona Norte do Rio.",
-  badgeLabel: "Credenciado",
-};
-
 const faqItems = [
   {
-    question: "Quanto tempo leva uma instalação?",
+    question: "Quanto tempo leva uma instalação de ar-condicionado split?",
     answer:
       "Um split residencial padrão costuma ser instalado em até 4 horas. Sistemas centrais ou multi-split dependem do projeto — passamos o prazo estimado já no orçamento.",
+  },
+  {
+    question: "Quanto custa instalar um ar-condicionado?",
+    answer:
+      "Depende do tipo de equipamento, da distância entre a evaporadora e a condensadora e da infraestrutura já existente. Um técnico avalia o local e envia o valor antes de qualquer serviço, sem taxa de visita na nossa área de cobertura.",
   },
   {
     question: "A instalação de vocês preserva a garantia de fábrica?",
@@ -128,14 +106,9 @@ const faqItems = [
       "Instalamos split, multi-split e sistemas centrais de praticamente todas as marcas vendidas no Brasil. Se o seu equipamento for de uma marca específica, é só perguntar.",
   },
   {
-    question: "Qual a área de atendimento?",
+    question: "Qual a área de atendimento para instalação?",
     answer:
-      "Atendemos o Rio de Janeiro (capital) e toda a Baixada Fluminense, com sede em Duque de Caxias.",
-  },
-  {
-    question: "Como funciona o orçamento?",
-    answer:
-      "Preenchendo o formulário ou chamando no WhatsApp, um técnico avalia o local e envia o valor antes de qualquer serviço ser iniciado. Sem taxa de visita na nossa área de cobertura.",
+      "Duque de Caxias, São João de Meriti, Nilópolis, Belford Roxo, Nova Iguaçu, Mesquita e Rio de Janeiro, com sede em Duque de Caxias.",
   },
   {
     question: "Vocês também fazem manutenção depois da instalação?",
@@ -150,28 +123,39 @@ const stats = [
   { value: "100%", label: "Credenciado pelos fabricantes", color: "text-gold" },
 ] as const;
 
+const heroHighlights = [
+  "Split e split inverter",
+  "Multi-split",
+  "Ar central",
+  "Residencial e comercial",
+  "Projeto e dimensionamento",
+  "Sem taxa de visita na nossa área",
+] as const;
+
 export default function InstalacaoArCondicionado() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd(faqItems)} />
       <LpHero
-        badgeLabel="Atendimento 24h disponível"
+        badgeLabel="Atendimento 24h · sem taxa de visita na nossa área"
         headline={
           <>
             Instalação de
             <br />
-            Ar-Condicionado
+            ar-condicionado
             <br />
             feita para durar
             <br />
             <span className="text-gray-400">e para valer a garantia.</span>
           </>
         }
-        subheadline="Central, split ou multi-split: instalação com a técnica certificada pelo fabricante do seu equipamento. Mais de 31 anos atendendo o Rio de Janeiro e a Baixada Fluminense."
-        primaryCtaLabel="Solicitar Orçamento"
+        subheadline="Split, multi-split ou central: instalação com a técnica certificada pelo fabricante do seu equipamento, em Duque de Caxias e toda a Baixada Fluminense. Mais de 31 anos na mesma região."
+        primaryCtaLabel="Pedir orçamento de instalação"
         defaultService="Instalação"
         videoSrc="/video/lp_instalacao.mp4"
         posterSrc="/video/lp_instalacao_poster.jpg"
         stats={stats}
+        highlights={heroHighlights}
         floatingBadge={{
           title: "Instalação em andamento",
           subtitle: "Técnico credenciado em campo",
@@ -179,7 +163,6 @@ export default function InstalacaoArCondicionado() {
       />
       <Differentiators title="Por que instalar com a JS AR Central" items={differentiators} />
       <Credentials />
-      <Testimonials testimonials={testimonials} trustCard={trustCard} />
       <LeadFormSection
         service="Instalação"
         thankYouPath="/instalacao-ar-condicionado/obrigado"

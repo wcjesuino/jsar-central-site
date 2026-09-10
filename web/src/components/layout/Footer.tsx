@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { siteConfig } from "@/lib/site-config";
-import { useWhatsAppIntent } from "@/components/whatsapp/WhatsAppIntentContext";
 
 function InstagramIcon() {
   return (
@@ -24,29 +21,33 @@ function FacebookIcon() {
 }
 
 export function Footer() {
-  const { open } = useWhatsAppIntent();
-
   return (
     <footer className="bg-surface-dark px-4 py-12 sm:px-6">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row">
           <div className="flex flex-col gap-4">
             <Logo variant="dark" size={26} />
-            <div className="flex flex-col gap-1 text-sm text-white/50">
-              <button
-                type="button"
-                onClick={() => open()}
-                className="text-left transition-colors hover:text-white"
-              >
+            <div className="flex flex-col gap-1 text-sm text-white/60">
+              <a href={siteConfig.phoneHref} className="transition-colors hover:text-white">
                 {siteConfig.phoneDisplay}
-              </button>
+              </a>
               <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-white">
                 {siteConfig.email}
               </a>
+              <span>{siteConfig.hoursDisplay}</span>
+              <span className="text-white/40">{siteConfig.hoursLegend}</span>
             </div>
           </div>
 
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
+          <div className="max-w-xs text-sm text-white/60">
+            <div className="mb-1 font-semibold text-white/80">Área de atendimento</div>
+            <p className="leading-relaxed">
+              Sede em {siteConfig.baseCity} ({siteConfig.baseRegion}). Atendemos{" "}
+              {siteConfig.areaServed.join(", ")} — residências, comércios e condomínios.
+            </p>
+          </div>
+
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">
             {siteConfig.navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
                 {link.label}
@@ -63,7 +64,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/40 transition-colors hover:border-brand hover:bg-brand/10 hover:text-brand"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-brand hover:bg-brand/10 hover:text-brand"
             >
               <InstagramIcon />
             </a>
@@ -72,15 +73,15 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/40 transition-colors hover:border-brand hover:bg-brand/10 hover:text-brand"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-brand hover:bg-brand/10 hover:text-brand"
             >
               <FacebookIcon />
             </a>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-xs text-white/30">
-          © {new Date().getFullYear()} JS AR Central. Todos os direitos reservados.
+        <div className="border-t border-white/10 pt-6 text-xs text-white/40">
+          © {new Date().getFullYear()} {siteConfig.legalName}. Todos os direitos reservados.
         </div>
       </div>
     </footer>

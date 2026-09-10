@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { GlassNav } from "@/components/shared/GlassNav";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 import type { WhatsAppService } from "@/components/whatsapp/WhatsAppIntentContext";
+import { siteConfig } from "@/lib/site-config";
 
 type Stat = { value: string; label: string; color: string };
 
@@ -17,6 +18,8 @@ type LpHeroProps = {
   posterSrc: string;
   stats: readonly Stat[];
   floatingBadge: { title: string; subtitle: string };
+  /** Chips curtos de sintomas/serviços exibidos na dobra, abaixo do CTA. */
+  highlights?: readonly string[];
 };
 
 export function LpHero({
@@ -29,6 +32,7 @@ export function LpHero({
   posterSrc,
   stats,
   floatingBadge,
+  highlights,
 }: LpHeroProps) {
   return (
     <div className="mx-auto w-full max-w-[1280px] p-4 sm:p-5">
@@ -46,7 +50,7 @@ export function LpHero({
             fetchPriority="low"
             className="h-full w-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-20% via-surface-dark/55 via-48% to-surface-dark/12" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-dark from-25% via-surface-dark/70 via-55% to-surface-dark/20" />
           <div className="absolute -bottom-20 -left-20 h-[420px] w-[420px] rounded-full bg-brand/15 blur-3xl" />
           <div className="absolute -top-16 -right-10 h-[320px] w-[320px] rounded-full bg-cool/15 blur-3xl" />
         </div>
@@ -54,7 +58,7 @@ export function LpHero({
         <GlassNav />
 
         <div className="relative z-10 mt-8 max-w-xl sm:mt-0">
-          <div className="mb-3 hidden sm:mb-5 sm:block">
+          <div className="mb-3 sm:mb-5">
             <Badge variant="green" dot>
               {badgeLabel}
             </Badge>
@@ -64,15 +68,37 @@ export function LpHero({
             {headline}
           </h1>
 
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/75 sm:mt-4 sm:text-base">
             {subheadline}
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-4 sm:mt-6">
+          <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6 sm:gap-4">
             <WhatsAppButton defaultService={defaultService} variant="primary" size="lg">
               {primaryCtaLabel}
             </WhatsAppButton>
+            <a
+              href={siteConfig.phoneHref}
+              className="inline-flex items-center justify-center gap-2 rounded-pill border border-white/25 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 5c0-.6.4-1 1-1h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3c0 .6-.4 1-1 1C10.6 19 4 12.4 4 5z" />
+              </svg>
+              Ligar: {siteConfig.phoneDisplay}
+            </a>
           </div>
+
+          {highlights && highlights.length > 0 && (
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {highlights.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-pill border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 sm:mt-8 sm:flex sm:flex-wrap sm:gap-8">
             {stats.map((stat) => (
@@ -80,7 +106,7 @@ export function LpHero({
                 <div className={`font-editorial text-xl font-semibold tracking-tight sm:text-2xl ${stat.color}`}>
                   {stat.value}
                 </div>
-                <div className="mt-0.5 text-[11px] text-white/35 sm:text-xs">{stat.label}</div>
+                <div className="mt-0.5 text-[11px] text-white/60 sm:text-xs">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -95,13 +121,13 @@ export function LpHero({
             className="h-[60px] w-[44px] rounded-md object-cover"
           />
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-wide text-white/40">
+            <div className="font-mono text-[10px] uppercase tracking-wide text-white/55">
               Serviço
             </div>
             <div className="font-editorial text-sm font-semibold text-white">
               {floatingBadge.title}
             </div>
-            <div className="mt-0.5 text-[11px] text-white/40">{floatingBadge.subtitle}</div>
+            <div className="mt-0.5 text-[11px] text-white/55">{floatingBadge.subtitle}</div>
           </div>
         </div>
       </section>
