@@ -1,12 +1,31 @@
 # JS AR Central — Otimização Google Ads (10/09/2026)
 
 > Histórico da intervenção feita em 10/09/2026 para destravar a veiculação da campanha
-> Search, que estava praticamente parada desde 01/09. Objetivo: revisar resultados em
-> **13–14/09/2026** (3–4 dias) contra a baseline registrada abaixo.
+> Search, que estava praticamente parada desde 01/09.
 >
 > Conta: **JS Ar Central** — Google Ads customer `1384765107`, sob a MCC Agência Reino
 > (`2631448144`). Campanha ativa: **"Instalacao e Manutencao de Ar-Condicionado"**
 > (`24084016928`), Search, lance MANUAL_CPC, só Rede de Pesquisa do Google.
+
+---
+
+## ⏰ LEMBRETE — REVISÃO PENDENTE: 14/09/2026 de manhã
+
+O Wagner vai pedir "roda a revisão" no dia 14/09 de manhã (não há agente na nuvem — o
+agendador não alcança a API do Google Ads, que só tem credenciais locais em
+`ads-studio/.env.local`). Ao ser acionado:
+
+1. Rodar as queries da **§6** (mesmas da baseline) e preencher a tabela de comparação.
+2. Avaliar pela metodologia campeão/desafiante — puxar qualificação dos leads no CRM do
+   Ads Studio (funil JS AR Central), não só volume.
+3. Decidir sobre os **desvios da §4**: (a) pausar ou não "instalação split" / "split
+   inverter" (QS 1); (b) adicionar Rio de Janeiro cidade (`geoTargetConstants/1001655`)
+   se o núcleo já estiver servindo.
+4. Verificar se `post_click_quality_score` saiu de BELOW_AVERAGE.
+5. Registrar tudo no §Log e mandar relatório pro Wagner.
+
+**Estado em 10/09 12:05:** campanha ainda não veiculou nada depois das mudanças
+(1 impressão às 10h, antes da alteração das 10:54) — propagação normal do Google Ads.
 
 ---
 
@@ -286,3 +305,4 @@ campeão; termos a R$3,50 que só geram lixo entram na fila de pausa/negativa.
 
 - **2026-09-10 ~10:54 (-03)** — §3.1 a §3.4 (Google Ads) aplicados via API, verificados por re-query.
 - **2026-09-10 ~12:00 (-03)** — auditoria de LP concluída; §5 (LPs) implementado, buildado e deployado em produção (commit `1ed4f56`). Doc de baseline pronto para revisão em 13–14/09.
+- **2026-09-10 ~12:15 (-03)** — Wagner escolheu revisão manual no dia 14/09 de manhã (Opção A). Lembrete adicionado no topo deste doc. Sem agente na nuvem.
