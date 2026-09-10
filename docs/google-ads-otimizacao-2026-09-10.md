@@ -230,7 +230,17 @@ aparecia acima da dobra; sem menção à região.
 - Confirmar `ADS_STUDIO_LEADS_WEBHOOK_URL` setado em produção na Vercel (P2-4) — se faltar,
   lead do formulário só cai em `console.log`.
 
-> **[A PREENCHER]** resultado do build/lint · URL do preview Vercel · commit · merge para produção.
+### Build / deploy
+- `tsc --noEmit`: passa. Build da Vercel (preview e produção): **sucesso** (`next build` roda
+  tsc + eslint + compile — tudo limpo).
+- Branch `ads/qs-landing-pages-2026-09` → commit `58ef962` → merge `--no-ff` em `main`
+  (commit `1ed4f56`), push para produção em 10/09.
+- Preview conferido via `vercel curl` (deployment protegido por SSO): H1 novo, `tel:` e
+  `wa.me` presentes, JSON-LD `HVACBusiness` + `FAQPage`, chips renderizando, zero
+  depoimento fictício, Montserrat removida (só 3 fontes no HTML).
+
+### Rollback das LPs
+`git revert 1ed4f56` (ou `git revert 58ef962`) e push para `main`.
 
 ---
 
@@ -274,4 +284,5 @@ campeão; termos a R$3,50 que só geram lixo entram na fila de pausa/negativa.
 
 ## Log
 
-- **2026-09-10 ~10:54 (-03)** — §3.1 a §3.4 aplicados via API, verificados por re-query. Auditoria de LP iniciada.
+- **2026-09-10 ~10:54 (-03)** — §3.1 a §3.4 (Google Ads) aplicados via API, verificados por re-query.
+- **2026-09-10 ~12:00 (-03)** — auditoria de LP concluída; §5 (LPs) implementado, buildado e deployado em produção (commit `1ed4f56`). Doc de baseline pronto para revisão em 13–14/09.
